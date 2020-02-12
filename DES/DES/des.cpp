@@ -1,4 +1,5 @@
 #include <assert.h>
+#include <iostream>
 
 #include "des.h"
 #include "tables.h"
@@ -113,7 +114,7 @@ void DES::gen_sub_keys()
 BitArray_64 DES::encrypt(const BitArray_64& _plain)
 {
 	BitArray_64 bits;
-	BitArray_32 new_left;
+	BitArray_32 tmp;
 
 	// 1. IP置换
 	for (int i = 0; i < 64; ++i)
@@ -126,16 +127,16 @@ BitArray_64 DES::encrypt(const BitArray_64& _plain)
 	// 3. 16 轮迭代
 	for (int round = 0; round < 16; ++round)
 	{
-		new_left = right;
+		tmp = right;
 		right = left ^ f(right, m_sub_keys[round]);
-		left = new_left;
+		left = tmp;
 	}
 
 	// 4. 迭代最后组合，R16L16
 	BitArray_64 cipher((right.to_ullong()) << 32 | left.to_ullong());
 
 	// 5. IP-1 置换
-	bits = cipher;
+	bits = cipher;	
 	for (int i = 0; i < 64; ++i)
 		cipher[63 - i] = bits[64 - IP_1[i]];
 
