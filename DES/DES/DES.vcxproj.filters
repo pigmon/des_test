@@ -32,5 +32,11 @@
     <ClInclude Include="defines.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="dgram_util.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="dgram.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

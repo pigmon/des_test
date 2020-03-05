@@ -144,6 +144,8 @@
   <ItemGroup>
     <ClInclude Include="defines.h" />
     <ClInclude Include="des.h" />
+    <ClInclude Include="dgram.h" />
+    <ClInclude Include="dgram_util.h" />
     <ClInclude Include="tables.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

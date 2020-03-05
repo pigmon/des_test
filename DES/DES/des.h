@@ -18,8 +18,7 @@ public:
 private:
 	static BitArray_32 f(const BitArray_32& _r, const BitArray_48& _key);
 	static void left_shift_in_key_56(BitArray_28& _key, const int _shift);
-	static BitArray_64 encode_key(const char _key[8]);
-
+	
 	void gen_sub_keys();
 
 public:
@@ -27,5 +26,6 @@ public:
 	BitArray_64 encrypt(const char* _str);
 	BitArray_64 decrypt(const BitArray_64& _cipher);
 
+	static BitArray_64 encode_key(const char _key[8]);
 	static BitArray_64 encode_key(const std::string& _key);
 };
